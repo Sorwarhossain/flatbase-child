@@ -12,6 +12,8 @@ Version: 1.0.0
     background-image: url(http://www.enovelhub.com/wp-content/uploads/2018/07/headerbg.jpg);
     background-color: #171717 !important;
     min-height: 80px !important;
+}
+.page-template-template-home #header{
     height: 271px !important;
 }
 #header #top #logo {
