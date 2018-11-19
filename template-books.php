@@ -35,6 +35,7 @@ get_header(); ?>
 							if($thumb_src == false) {
 								$thumb_src = 'https://via.placeholder.com/600x300';
 							}
+
 						?>
 							<div class="review_thumb">
 								<img src="<?php echo $thumb_src; ?>" alt="">

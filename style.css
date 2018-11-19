@@ -10,11 +10,24 @@ Version: 1.0.0
 
 #header {
     background-image: url(http://www.enovelhub.com/wp-content/uploads/2018/07/headerbg.jpg);
+    background-color: #171717 !important;
+    min-height: 80px !important;
+    height: 271px !important;
 }
-#header {
-    background-color: #171717;
+#header #top #logo {
+    padding-top: 15px;
 }
-
+li.search-menu.search-menu {
+    margin-top: 12px;
+}
+#searchsubmit {
+    background-color: #5bc4be;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+}
+#top #navigation .nav > li a {
+    line-height: 80px;
+}
 
 .welcome-message p, .welcome-message p a {
     font: normal 18px 'Voltaire', arial, sans-serif;
@@ -106,7 +119,8 @@ a.cat_link i {
     max-width: 100px;
 }
 .categorized_item h3 {
-	margin-top: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 .categorized_item h3 a {
     font-size: 20px;
@@ -114,8 +128,18 @@ a.cat_link i {
 }
 .categorized_item h5 {
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 4px;
     color: #ccc;
+}
+.categorized_item h5.avg_ratting {
+    color: #111;
+    font-weight: 600;
+}
+.categorized_item a.readmore {
+    font-weight: 400;
+    font-size: 12px;
+    padding: 3px 16px;
+    margin-top: 10px;
 }
 h4.widgettitle {
     font-weight: 600;
@@ -123,6 +147,41 @@ h4.widgettitle {
     padding-bottom: 15px;
 }
 
+
+.avg_ratting .cbratingavgratelist {
+    display: inline;
+}
+.avg_ratting .cbratingavgratelist .cbratingreview_listing {
+    padding: 0;
+}
+ 
+.page-template-template-home #search-wrap {
+    display: none;
+}
+.page-template-template-home #live-search {
+    padding: 50px 0 15px;
+}
+.page-template-template-home #live-search .welcome-message h2 {
+    font: bold 40px 'Tinos', arial, sans-serif;
+    color: #ffffff !important;
+    margin-bottom: 40px !important;
+}
+.page-template-template-home .social-links #social {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.page-template-template-home .social-links #social li {
+    display: inline;
+}
+.page-template-template-home .social-links #social li a {
+    display: inline-block;
+    color: #fff;
+    padding: 9px;
+    width: 36px;
+    text-align: center;
+    margin-right: 7px;
+}
 
 @media only screen and (max-width: 767px) {
     .homepage-sections .col-2-3 {

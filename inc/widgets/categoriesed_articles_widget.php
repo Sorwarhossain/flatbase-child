@@ -60,12 +60,24 @@ class ChildCategorizedArticle extends WP_Widget{
 	    		?>
 
 				<div class="categorized_item">
-					<?php //echo var_dump($post); ?>
 					<div class="categorized_item_thumb">
 						<img src="<?php echo $thumb_src; ?>" alt="">
 					</div>
 					<h3><a href="<?php the_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></h3>
 					<h5><?php echo get_the_time('F j, Y', $post->ID); ?></h5>
+
+					<?php 
+					if(function_exists('standaloneSinglePostRatingSummary')):
+						$form_id = 1; //asign form id as you need. 
+						$post_id = $post->ID; //if you are using this outside of wordpress loop then set the post id as it need , example $post_id = your post id here ;
+				        $option = array(
+							'form_id' => array($form_id),
+							'post_id' => array($post_id)
+						);
+						echo '<h5 class="avg_ratting"><span>Avg Ratting:</span> ' . standaloneSinglePostRatingSummary($option) . '</h5>';
+					endif;
+					?>
+					<a class="readmore" href="<?php the_permalink($post->ID); ?>">Want To Read</a>
 				</div>
 
 
