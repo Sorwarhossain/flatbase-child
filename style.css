@@ -218,10 +218,31 @@ h4.widgettitle {
     color: #111;
 }
 .single_rating p {
-    margin-top: 10px;
-    color: #333;
+    color: #ffffff;
+    margin-top: 16px;
 }
 .row.rating_collumns {
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
     background-color: #f4f4f4;
-    padding-top: 26px;
+}
+.row.rating_collumns .single_rating {
+    background-color: #0fd25c;
+    min-height: 100% !important;
+    padding: 30px 10px 10px 20px;
+}
+.row.rating_collumns .single_rating:first-child {
+    background-color: #0AC855;
+}
+.row.rating_collumns .single_rating:last-child {
+    background-color: #1dd666;
+}
+.row.rating_collumns .single_rating h2 {
+    color: #F4AC00;
+    font-weight: 900;
+}
+.row.rating_collumns .single_rating h3 {
+    margin-bottom: 16px;
+    color: #fff;
 }

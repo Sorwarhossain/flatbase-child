@@ -34,54 +34,22 @@ get_header(); ?>
 									<div class="row clearfix rating_collumns">
 										<div class="columns-3 single_rating">
 											<h3>Editor Rating</h3>
-<?php 
-if(function_exists('standaloneSinglePostRatingSummary')):
-	$form_id = 1; //asign form id as you need. 
-	$post_id = $post->ID; //if you are using this outside of wordpress loop then set the post id as it need , example $post_id = your post id here ;
-    $option = array(
-		'form_id' => array($form_id),
-		'post_id' => array($post_id),
-	);
-	echo '<h5 class="avg_ratting">' . standaloneSinglePostRatingSummary($option) . '</h5>';
-endif;
-
-?>
+											<?php 
+											$reviews = CBRatingSystemData::get_user_ratings_with_ratingForm(array(1), array(get_the_ID()), array(), '', 'created', 'DESC', array(), true);
+											the_child_editor_rating($reviews);
+											?>
 											<p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, rerum, dolores voluptatibus repellat quam quas dolorum excepturi, asperiores perferendis amet, corporis! Obcaecati.</p>
 										</div>
 										<div class="columns-3 single_rating">
 											<h3>User Rating</h3>
-											<?php
+											<?php the_child_user_rating($reviews); ?>
 
-
-		if(function_exists('standaloneSinglePostRatingSummary')):
-			$form_id = 1; //asign form id as you need. 
-			$post_id = $post->ID; //if you are using this outside of wordpress loop then set the post id as it need , example $post_id = your post id here ;
-	        $option = array(
-				'form_id' => array($form_id),
-				'post_id' => array($post_id),
-			);
-			echo '<h5 class="avg_ratting">' . standaloneSinglePostRatingSummary($option) . '</h5>';
-		endif;
-
-
-
-											?>
 											<p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, rerum, dolores voluptatibus repellat quam quas dolorum excepturi, asperiores perferendis amet..</p>
 										</div>
 										<div class="columns-3 single_rating">
 											<h3>Ovarall Rating</h3>
-<?php 
-if(function_exists('standaloneSinglePostRatingSummary')):
-	$form_id = 1; //asign form id as you need. 
-	$post_id = $post->ID; //if you are using this outside of wordpress loop then set the post id as it need , example $post_id = your post id here ;
-    $option = array(
-		'form_id' => array($form_id),
-		'post_id' => array($post_id),
-	);
-	echo '<h5 class="avg_ratting">' . standaloneSinglePostRatingSummary($option) . '</h5>';
-endif;
+											<?php the_child_ovarall_rating($reviews); ?>
 
-?>
 											<p>	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, rerum, dolores voluptatibus repellat quam quas dolorum.</p>
 										</div>
 									</div>
