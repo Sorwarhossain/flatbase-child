@@ -15,8 +15,12 @@ get_header(); ?>
 					<!-- Homepage Reviews Section -->
 					<div class="homepage_reviews_wrapper">
 					<?php 
+					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+					$posts_per_page = 8;
 					$args = array(
 						'post_type' => 'article',
+						'posts_per_page' => $posts_per_page,
+						'paged' => $paged,
 						'tax_query' => array(
 							array(
 								'taxonomy' => 'article-category',
@@ -45,11 +49,33 @@ get_header(); ?>
 
 							<a href="<?php the_permalink(); ?>" class="readmore">Continue Reading</a>
 
-							<a href="#" class="cat_link"><i class="fa fa-folder"></i> Featured Lifestyle</a>
+							<?php 
+							$reviews = CBRatingSystemData::get_user_ratings_with_ratingForm(array(1), array(get_the_ID()), array(), '', 'created', 'DESC', array(), true);
+							?>
+							<a href="#" class="cat_link"><i class="fa fa-comments"></i> <?php echo get_child_total_comments($reviews); ?></a>
 						</div>
 
 					<?php 
-					endwhile; endif;
+					endwhile; 
+
+
+					$total_pages = $loop->max_num_pages;
+					if ($total_pages > 1){
+						echo '<div class="pagination_wrapper">';
+							$current_page = max(1, get_query_var('paged'));
+					        echo paginate_links(array(
+					            'base' => get_pagenum_link(1) . '%_%',
+					            'format' => 'page/%#%',
+					            'current' => $current_page,
+					            'total' => $total_pages,
+					            'prev_text'    => __('« prev'),
+					            'next_text'    => __('next »'),
+					        ));
+					    echo '</div>';
+					}
+
+
+				endif;
 					?>
 					</div>
 					<!-- End Homepage Reviews Section -->

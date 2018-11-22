@@ -13,7 +13,7 @@ class ChildCategorizedArticle extends WP_Widget{
 		parent::__construct(
 			'ChildCategorizedArticle',
 			__('Child Categorized Articles', 'text-domain'),
-			array('description' => __('Display any categorized', 'text-domain'))
+			array('description' => __('Only show the featured articles', 'text-domain'))
 		);
 	}
 
@@ -42,10 +42,14 @@ class ChildCategorizedArticle extends WP_Widget{
 		        array(
 		            'taxonomy' => 'article-category',
 		            'field'    => 'slug',
-		            'terms'    => array( $article_cat )
-		        )
+		            'terms'    => array( $article_cat, 'featured' ),
+		            'operator' => 'AND',
+		        ),
 		    )
 		);
+
+		//echo var_dump($args);
+
 		$posts = get_posts( $args );
 
 	    echo '<div class="categorized_wrapper">';
@@ -63,7 +67,7 @@ class ChildCategorizedArticle extends WP_Widget{
 					<div class="categorized_item_thumb">
 						<img src="<?php echo $thumb_src; ?>" alt="">
 					</div>
-					<h3><a href="<?php the_permalink($post->ID); ?>"><?php echo $post->post_title; ?></a></h3>
+					<h3><a href="<?php the_permalink($post->ID); ?>"><?php echo child_get_limit_text($post->post_title); ?></a></h3>
 					<h5><?php echo get_the_time('F j, Y', $post->ID); ?></h5>
 
 					<?php 

@@ -94,7 +94,10 @@ if($loop->have_posts()) :
 
 		<a href="<?php the_permalink(); ?>" class="readmore">Continue Reading</a>
 
-		<a href="#" class="cat_link"><i class="fa fa-folder"></i> Featured Lifestyle</a>
+		<?php 
+		$reviews = CBRatingSystemData::get_user_ratings_with_ratingForm(array(1), array(get_the_ID()), array(), '', 'created', 'DESC', array(), true);
+		?>
+		<a href="#" class="cat_link"><i class="fa fa-comments"></i> <?php echo get_child_total_comments($reviews); ?></a>
 	</div>
 
 <?php 
