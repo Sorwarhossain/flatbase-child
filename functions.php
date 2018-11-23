@@ -30,7 +30,7 @@ function the_child_user_rating($reviews){
 
 	}
 	if($total_rate > 0){
-		echo "<h2>". $total_rate/$rev_count ."%</h2>";
+		echo "<h2>". ceil($total_rate/$rev_count) ."%</h2>";
 	} else {
 		echo "<h2>Not Rated</h2>";
 	}
@@ -44,7 +44,7 @@ function the_child_ovarall_rating($reviews){
 		$total_rate = $total_rate + $review->rating[0];
 	}
 	if($total_rate > 0){
-		echo "<h2>". $total_rate/$rev_count ."%</h2>";
+		echo "<h2>". ceil($total_rate/$rev_count) ."%</h2>";
 	} else {
 		echo "<h2>Not Rated</h2>";
 	}
@@ -79,7 +79,7 @@ function the_child_editor_rating($reviews){
 
 	}
 	if($total_rate > 0){
-		echo "<h2>". $total_rate/$rev_count ."%</h2>";
+		echo "<h2>". ceil($total_rate/$rev_count) ."%</h2>";
 	} else {
 		echo "<h2>Not Rated</h2>";
 	}

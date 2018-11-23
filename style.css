@@ -299,7 +299,7 @@ h4.widgettitle {
     background-color: #f4f4f4;
 }
 .row.rating_collumns .single_rating {
-    background-color: #a5b1c2ed;
+    background-color: #9dabbd;
     min-height: 100% !important;
     padding: 30px 10px 10px 20px;
 }
@@ -307,7 +307,7 @@ h4.widgettitle {
     background-color: #a5b1c2;
 }
 .row.rating_collumns .single_rating:last-child {
-    background-color: #a5b1c2de;
+    background-color: #93a0b1;
 }
 .row.rating_collumns .single_rating h2 {
     color: #fa8231;
