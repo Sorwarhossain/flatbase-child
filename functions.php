@@ -89,3 +89,20 @@ function child_get_limit_text($text, $limit=30){
 	$array = explode( "\n", wordwrap( $text, $limit));
 	return $array['0'];
 }
+
+
+
+
+function get_child_comment_count($comments){
+
+
+	$Comment_count = (int) $comments;
+	if($Comment_count > 0){
+		if($Comment_count == 1){
+			return $Comment_count . " Comment";
+		}
+		return $Comment_count . " Comments";
+	} else {
+		return "No Comments";
+	}
+}
